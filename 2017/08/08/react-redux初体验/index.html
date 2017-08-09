@@ -102,7 +102,7 @@
 <meta property="og:description" content="前一段时间学习了react和redux，对于用惯了原生JS的我简直是无从下手，react技术栈涉及的大部分知识我都没有接触过，于是乎又学习了一下es6语法，jsx，这才开始我的react&amp;amp;redux之旅，学习的同时又接触到了css Module和webpack。深深地体会到了react的复杂之处。于是乎做了一个简单的待办事项单页应用以检验成果。不多说，直接上图（对于毫无设计灵感的我还是a">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/akamuinsaner/akamuinsaner.github.io/master/uploads/todo.png">
-<meta property="og:updated_time" content="2017-08-09T05:20:34.808Z">
+<meta property="og:updated_time" content="2017-08-09T05:27:40.808Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react&amp;redux初体验">
 <meta name="twitter:description" content="前一段时间学习了react和redux，对于用惯了原生JS的我简直是无从下手，react技术栈涉及的大部分知识我都没有接触过，于是乎又学习了一下es6语法，jsx，这才开始我的react&amp;amp;redux之旅，学习的同时又接触到了css Module和webpack。深深地体会到了react的复杂之处。于是乎做了一个简单的待办事项单页应用以检验成果。不多说，直接上图（对于毫无设计灵感的我还是a">
@@ -333,9 +333,7 @@
       
         <p>前一段时间学习了react和redux，对于用惯了原生JS的我简直是无从下手，react技术栈涉及的大部分知识我都没有接触过，于是乎又学习了一下es6语法，jsx，这才开始我的react&amp;redux之旅，学习的同时又接触到了css Module和webpack。深深地体会到了react的复杂之处。于是乎做了一个简单的待办事项单页应用以检验成果。<br>不多说，直接上图（对于毫无设计灵感的我还是a little shame）<img src="https://raw.githubusercontent.com/akamuinsaner/akamuinsaner.github.io/master/uploads/todo.png" alt=""><br>在这个应用中我将整个界面划分为这么几个组件，左侧绿框包围的是具体待办事项，粉框包围的是待办事项的父组件，右侧橙色框包围的是待办事项输入组件，最外侧紫色框是最外层的组件。     </p>
 <ol>
-<li>todoItem<br>todoItem即待办事项组件组要作用是负责渲染页面，但还有一个作用是改变通过复选框改变state的active属性    <code>&lt;div className=&quot;todo-lists-right&quot;&gt;       
-   &lt;input type=&quot;checkbox&quot; checked={this.state.active} onChange={this.onActive}      className=&quot;todo-lists-check&quot; /&gt;        
-   &lt;/div&gt;</code></li>
+<li>todoItem<br>todoItem即待办事项组件组要作用是负责渲染页面，但还有一个作用是改变通过复选框改变state的active属性<br><pre><code><br><div classname="todo-lists-right" \=""><br> <input type="checkbox" checked="{this.state.active}" onchange="{this.onActive}" classname="todo-lists-check" \=""><br></div></code></pre></li>
 </ol>
 
       
