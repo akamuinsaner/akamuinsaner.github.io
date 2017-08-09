@@ -102,7 +102,7 @@
 <meta property="og:description" content="前一段时间学习了react和redux，对于用惯了原生JS的我简直是无从下手，react技术栈涉及的大部分知识我都没有接触过，于是乎又学习了一下es6语法，jsx，这才开始我的react&amp;amp;redux之旅，学习的同时又接触到了css Module和webpack。深深地体会到了react的复杂之处。于是乎做了一个简单的待办事项单页应用以检验成果。不多说，直接上图（对于毫无设计灵感的我还是a">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/akamuinsaner/akamuinsaner.github.io/master/uploads/todo.png">
-<meta property="og:updated_time" content="2017-08-09T05:27:40.808Z">
+<meta property="og:updated_time" content="2017-08-09T07:24:12.206Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react&amp;redux初体验">
 <meta name="twitter:description" content="前一段时间学习了react和redux，对于用惯了原生JS的我简直是无从下手，react技术栈涉及的大部分知识我都没有接触过，于是乎又学习了一下es6语法，jsx，这才开始我的react&amp;amp;redux之旅，学习的同时又接触到了css Module和webpack。深深地体会到了react的复杂之处。于是乎做了一个简单的待办事项单页应用以检验成果。不多说，直接上图（对于毫无设计灵感的我还是a">
@@ -333,8 +333,202 @@
       
         <p>前一段时间学习了react和redux，对于用惯了原生JS的我简直是无从下手，react技术栈涉及的大部分知识我都没有接触过，于是乎又学习了一下es6语法，jsx，这才开始我的react&amp;redux之旅，学习的同时又接触到了css Module和webpack。深深地体会到了react的复杂之处。于是乎做了一个简单的待办事项单页应用以检验成果。<br>不多说，直接上图（对于毫无设计灵感的我还是a little shame）<img src="https://raw.githubusercontent.com/akamuinsaner/akamuinsaner.github.io/master/uploads/todo.png" alt=""><br>在这个应用中我将整个界面划分为这么几个组件，左侧绿框包围的是具体待办事项，粉框包围的是待办事项的父组件，右侧橙色框包围的是待办事项输入组件，最外侧紫色框是最外层的组件。     </p>
 <ol>
-<li>todoItem<br>todoItem即待办事项组件组要作用是负责渲染页面，但还有一个作用是改变通过复选框改变state的active属性<br><pre><code><br><div classname="todo-lists-right" \=""><br> <input type="checkbox" checked="{this.state.active}" onchange="{this.onActive}" classname="todo-lists-check" \=""><br></div></code></pre></li>
+<li>todoItem<br>todoItem即待办事项组件组要作用是负责渲染页面，但还有一个作用是通过复选框改变state的active属性,以此来选中具体列表项    <pre>
+onActive(event){
+let value = event.target.checked;
+this.setState({
+   active:value
+});
+this.context.store.dispatch(activeTodo(this.props.item.index));
+}
+</pre>
+复选框通过onChange监听onActive事件，只要复选框状态发生改变即向reducer发送一个含有该事项index的action，将事项的active字段改为true或false
+<pre>
+export const activeTodo = (index) =>{
+ return {
+     type: ActionTypes.ACTIVE_TODO,
+     index:index
+ }
+};
+</pre>
+<pre>
+case ActionTypes.ACTIVE_TODO:
+return state.map((item)=>{
+     if(item.index === action.index){
+          return Object.assign({}, item, {active: !item.active});
+     }else{
+          return item;
+     }
+});
+</pre>
+
+</li>
 </ol>
+<p>2.todoInput<br>todoInput即待办事项输入组件，下面列了五个按钮（按钮的样式借鉴了bootstrap的样式），其中除了“查看”按钮之外其余都会发出一个action改变state   </p>
+<pre>
+ onAddButton(){
+        if(this.state.whatInput.trim()){
+            this.context.store.dispatch(addTodo(this.state.whatInput, this.state.whereInput, this.state.whenInput));
+            this.setState({
+                whatInput:'',
+                whereInput:'',
+                whenInput:''
+            })
+        }
+ };
+ onDelButton(){
+        this.context.store.dispatch(deleteTodo());
+ };
+
+ onModButton(){
+        this.context.store.dispatch(modTodo(this.state.whatInput, this.state.whereInput, this.state.whenInput));
+        this.setState({
+            whatInput:'',
+            whereInput:'',
+            whenInput:''
+        })
+};
+
+onDoneButton(){
+        this.context.store.dispatch(completeTodo());
+};
+
+onViewTodo(){
+        let state = this.context.store.getState();
+        state.map((item) =>{
+            if(item.active === true){
+                this.setState({
+                    whatInput:item.text,
+                    whereInput:item.place,
+                    whenInput:item.time
+                })
+            }
+        })
+}
+</pre>     
+五个按钮分别监听通过onClick监听上述五个事件来执行相应动作
+<pre>
+export const addTodo = (text, place, time) =>{
+    return {
+        type: ActionTypes.ADD_TODO,
+        text: text,
+        place: place,
+        time: time
+    }
+};
+
+export const deleteTodo = () =>{
+    return {
+        type: ActionTypes.DELETE_TODO,
+    }
+};
+
+export const modTodo = (text , place , time) =>{
+    return {
+        type: ActionTypes.MOD_TODO,
+        text: text,
+        place:place,
+        time:time
+    }
+};
+
+export const completeTodo = () =>{
+    return {
+        type: ActionTypes.COMPLETE_TODO
+    }
+};
+</pre>
+<pre>
+        case ActionTypes.ADD_TODO:
+            return [
+                ...state,
+                {
+                    id: nextTodoId++,
+                    text: action.text,
+                    place: action.place,
+                    time: action.time,
+                    complete: false,
+                    active: false,
+                    index:state.length
+                }
+            ];
+
+
+        case ActionTypes.DELETE_TODO:
+            let delState = state;
+            for(let i=delState.length-1 ;i>=0 ;i--){
+                if(delState[i].active === true){
+                    delState.splice(i , 1);
+                }
+            }
+            for(let i=0; i<delstate.length; i++){="" delstate[i].index="i;" }="" return="" delstate;="" case="" actiontypes.mod_todo:="" state.map((item)="">{
+               if(item.active === true){
+                   return Object.assign({}, item, {
+                        text:action.text,
+                        place:action.place,
+                        time:action.time
+                   });
+               }else{
+                   return item;
+               }
+            });
+
+        case ActionTypes.COMPLETE_TODO:
+            return state.map((item)=>{
+               if(item.active === true){
+                   return Object.assign({}, item, {complete: true});
+               }else{
+                   return item;
+               }
+            });
+</delstate.length;></pre>
+3.todoList   
+todoList即todoItem父组件，承担着渲染子组件和为子组件提供props的作用   
+
+其实一开始学习react的时候就想到react代码要怎样在前端呈现的问题，刚开始是使用creat-react-app，
+但后来发现了webpack模块打包器，一下解决了我的这个问题，通过配置webpack的配置文件即可实现
+<pre>
+module.exports = {
+    entry: './src/index.js', // 入口文件路径
+    output: {
+        path: '/',
+        filename: 'bundle.js',
+        auxiliaryComment: "Test Comment"
+    },
+    devServer: {
+        port: 8080
+    },
+    devtool: 'inline-source-map',
+    module: {
+        loaders: [
+            {
+                test: /\.js$/, // babel 转换为兼容性的 js
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['react', 'latest']
+                }
+            },
+            {
+                test: /\.css$/,
+                loader: "style-loader!css-loader"
+            }
+        ]
+    }
+}
+</pre>
+
+<p>源码地址：<a href="https://github.com/akamuinsaner/todoList" target="_blank" rel="external">https://github.com/akamuinsaner/todoList</a><br>查看演示：运行下列命令</p>
+<pre>
+git clone https://github.com/akamuinsaner/todoList
+cd todoList
+npm install
+npm start
+</pre>
+
+
+
+
 
       
     </div>
