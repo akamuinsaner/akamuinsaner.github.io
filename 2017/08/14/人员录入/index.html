@@ -94,19 +94,19 @@
 
 
 
-<meta name="description" content="前一段时间学习了react和redux，对于用惯了原生JS的我简直是无从下手，react技术栈涉及的大部分知识我都没有接触过，于是乎又学习了一下es6语法，jsx，这才开始我的react&amp;amp;redux之旅，学习的同时又接触到了css Module和webpack。深深地体会到了react的复杂之处。于是乎做了一个简单的待办事项单页应用以检验成果。源码地址：https://github.com">
+<meta name="description" content="之前使用原生js+bootstrap做了一个简单的人员录入界面，用过react才知道操作dom是真的麻烦。。。使用localStorage本地存储录入人员信息，即使刷新页面记录也不会丢失。介绍：1.Add按钮：点击Add按钮会在表格新增一空白行。2.Delete按钮：选中若干表格行，点击Delete按钮会将选中表格行和对应内存信息删除（电话必须填完整，因为删除是根据电话删除，电话独一无二）3.Sa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react&amp;redux初体验">
-<meta property="og:url" content="http://wangshuaiBlog.com/2017/08/08/react-redux初体验/index.html">
+<meta property="og:title" content="人员录入">
+<meta property="og:url" content="http://wangshuaiBlog.com/2017/08/14/人员录入/index.html">
 <meta property="og:site_name" content="王帅のBlog">
-<meta property="og:description" content="前一段时间学习了react和redux，对于用惯了原生JS的我简直是无从下手，react技术栈涉及的大部分知识我都没有接触过，于是乎又学习了一下es6语法，jsx，这才开始我的react&amp;amp;redux之旅，学习的同时又接触到了css Module和webpack。深深地体会到了react的复杂之处。于是乎做了一个简单的待办事项单页应用以检验成果。源码地址：https://github.com">
+<meta property="og:description" content="之前使用原生js+bootstrap做了一个简单的人员录入界面，用过react才知道操作dom是真的麻烦。。。使用localStorage本地存储录入人员信息，即使刷新页面记录也不会丢失。介绍：1.Add按钮：点击Add按钮会在表格新增一空白行。2.Delete按钮：选中若干表格行，点击Delete按钮会将选中表格行和对应内存信息删除（电话必须填完整，因为删除是根据电话删除，电话独一无二）3.Sa">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/akamuinsaner/akamuinsaner.github.io/master/uploads/todo.png">
-<meta property="og:updated_time" content="2017-08-14T06:05:59.594Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/akamuinsaner/akamuinsaner.github.io/master/uploads/perosonnote.png">
+<meta property="og:updated_time" content="2017-08-14T06:47:42.935Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="react&amp;redux初体验">
-<meta name="twitter:description" content="前一段时间学习了react和redux，对于用惯了原生JS的我简直是无从下手，react技术栈涉及的大部分知识我都没有接触过，于是乎又学习了一下es6语法，jsx，这才开始我的react&amp;amp;redux之旅，学习的同时又接触到了css Module和webpack。深深地体会到了react的复杂之处。于是乎做了一个简单的待办事项单页应用以检验成果。源码地址：https://github.com">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/akamuinsaner/akamuinsaner.github.io/master/uploads/todo.png">
+<meta name="twitter:title" content="人员录入">
+<meta name="twitter:description" content="之前使用原生js+bootstrap做了一个简单的人员录入界面，用过react才知道操作dom是真的麻烦。。。使用localStorage本地存储录入人员信息，即使刷新页面记录也不会丢失。介绍：1.Add按钮：点击Add按钮会在表格新增一空白行。2.Delete按钮：选中若干表格行，点击Delete按钮会将选中表格行和对应内存信息删除（电话必须填完整，因为删除是根据电话删除，电话独一无二）3.Sa">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/akamuinsaner/akamuinsaner.github.io/master/uploads/perosonnote.png">
 
 
 
@@ -135,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://wangshuaiBlog.com/2017/08/08/react-redux初体验/"/>
+  <link rel="canonical" href="http://wangshuaiBlog.com/2017/08/14/人员录入/"/>
 
 
 
 
 
-  <title>react&redux初体验 | 王帅のBlog</title>
+  <title>人员录入 | 王帅のBlog</title>
   
 
 
@@ -264,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangshuaiBlog.com/2017/08/08/react-redux初体验/">
+    <link itemprop="mainEntityOfPage" href="http://wangshuaiBlog.com/2017/08/14/人员录入/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王帅">
@@ -281,7 +281,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">react&redux初体验</h1>
+          <h1 class="post-title" itemprop="name headline">人员录入</h1>
         
 
         <div class="post-meta">
@@ -293,8 +293,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-08T20:15:51+08:00">
-                2017-08-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-14T14:14:47+08:00">
+                2017-08-14
               </time>
             
 
@@ -331,212 +331,8 @@
       
 
       
-        <p>前一段时间学习了react和redux，对于用惯了原生JS的我简直是无从下手，react技术栈涉及的大部分知识我都没有接触过，于是乎又学习了一下es6语法，jsx，这才开始我的react&amp;redux之旅，学习的同时又接触到了css Module和webpack。深深地体会到了react的复杂之处。于是乎做了一个简单的待办事项单页应用以检验成果。<br>源码地址：<a href="https://github.com/akamuinsaner/todoList" target="_blank" rel="external">https://github.com/akamuinsaner/todoList</a><br>查看演示：运行下列命令</p>
-<pre>
-git clone https://github.com/akamuinsaner/todoList
-cd todoList
-npm install
-npm start
-</pre>
-不多说，直接上图（对于毫无设计灵感的我还是a little shame）     
-<img src="https://raw.githubusercontent.com/akamuinsaner/akamuinsaner.github.io/master/uploads/todo.png">
-在这个应用中我将整个界面划分为这么几个组件，左侧绿框包围的是具体待办事项，粉框包围的是待办事项的父组件，右侧橙色框包围的是待办事项输入组件，最外侧紫色框是最外层的组件。     
-1. todoItem   
-todoItem即待办事项组件组要作用是负责渲染页面，但还有一个作用是通过复选框改变state的active属性,以此来选中具体列表项    
-<pre>
-onActive(event){
-   let value = event.target.checked;
-   this.setState({
-      active:value
-   });
-   this.context.store.dispatch(activeTodo(this.props.item.index));
-}
-</pre>
-复选框通过onChange监听onActive事件，只要复选框状态发生改变即向reducer发送一个含有该事项index的action，将事项的active字段改为true或false
-<pre>
-export const activeTodo = (index) =>{
-    return {
-        type: ActionTypes.ACTIVE_TODO,
-        index:index
-    }
-};
-</pre>
-<pre>
-case ActionTypes.ACTIVE_TODO:
-   return state.map((item)=>{
-        if(item.index === action.index){
-             return Object.assign({}, item, {active: !item.active});
-        }else{
-             return item;
-        }
-   });
-</pre>
-
-<p>2.todoInput<br>todoInput即待办事项输入组件，下面列了五个按钮（按钮的样式借鉴了bootstrap的样式），其中除了“查看”按钮之外其余都会发出一个action改变state   </p>
-<pre>
- onAddButton(){
-        if(this.state.whatInput.trim()){
-            this.context.store.dispatch(addTodo(this.state.whatInput, this.state.whereInput, this.state.whenInput));
-            this.setState({
-                whatInput:'',
-                whereInput:'',
-                whenInput:''
-            })
-        }
- };
- onDelButton(){
-        this.context.store.dispatch(deleteTodo());
- };
-
- onModButton(){
-        this.context.store.dispatch(modTodo(this.state.whatInput, this.state.whereInput, this.state.whenInput));
-        this.setState({
-            whatInput:'',
-            whereInput:'',
-            whenInput:''
-        })
-};
-
-onDoneButton(){
-        this.context.store.dispatch(completeTodo());
-};
-
-onViewTodo(){
-        let state = this.context.store.getState();
-        state.map((item) =>{
-            if(item.active === true){
-                this.setState({
-                    whatInput:item.text,
-                    whereInput:item.place,
-                    whenInput:item.time
-                })
-            }
-        })
-}
-</pre>     
-五个按钮分别监听通过onClick监听上述五个事件来执行相应动作
-<pre>
-export const addTodo = (text, place, time) =>{
-    return {
-        type: ActionTypes.ADD_TODO,
-        text: text,
-        place: place,
-        time: time
-    }
-};
-
-export const deleteTodo = () =>{
-    return {
-        type: ActionTypes.DELETE_TODO,
-    }
-};
-
-export const modTodo = (text , place , time) =>{
-    return {
-        type: ActionTypes.MOD_TODO,
-        text: text,
-        place:place,
-        time:time
-    }
-};
-
-export const completeTodo = () =>{
-    return {
-        type: ActionTypes.COMPLETE_TODO
-    }
-};
-</pre>
-<pre>
-        case ActionTypes.ADD_TODO:
-            return [
-                ...state,
-                {
-                    id: nextTodoId++,
-                    text: action.text,
-                    place: action.place,
-                    time: action.time,
-                    complete: false,
-                    active: false,
-                    index:state.length
-                }
-            ];
-
-
-        case ActionTypes.DELETE_TODO:
-            let delState = state;
-            for(let i=delState.length-1 ;i>=0 ;i--){
-                if(delState[i].active === true){
-                    delState.splice(i , 1);
-                }
-            }
-            for(let i=0; i<delstate.length; i++){="" delstate[i].index="i;" }="" return="" delstate;="" case="" actiontypes.mod_todo:="" state.map((item)="">{
-               if(item.active === true){
-                   return Object.assign({}, item, {
-                        text:action.text,
-                        place:action.place,
-                        time:action.time
-                   });
-               }else{
-                   return item;
-               }
-            });
-
-        case ActionTypes.COMPLETE_TODO:
-            return state.map((item)=>{
-               if(item.active === true){
-                   return Object.assign({}, item, {complete: true});
-               }else{
-                   return item;
-               }
-            });
-</delstate.length;></pre>
-3.todoList   
-todoList即todoItem父组件，承担着渲染子组件和为子组件提供props的作用   
-
-其实一开始学习react的时候就想到react代码要怎样在前端呈现的问题，刚开始是使用creat-react-app，
-但后来发现了webpack模块打包器，一下解决了我的这个问题，通过配置webpack的配置文件即可实现
-<pre>
-module.exports = {
-    entry: './src/index.js', // 入口文件路径
-    output: {
-        path: '/',
-        filename: 'bundle.js',
-        auxiliaryComment: "Test Comment"
-    },
-    devServer: {
-        port: 8080
-    },
-    devtool: 'inline-source-map',
-    module: {
-        loaders: [
-            {
-                test: /\.js$/, // babel 转换为兼容性的 js
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['react', 'latest']
-                }
-            },
-            {
-                test: /\.css$/,
-                loader: "style-loader!css-loader"
-            }
-        ]
-    }
-}
-</pre>
-
-<p>源码地址：<a href="https://github.com/akamuinsaner/todoList" target="_blank" rel="external">https://github.com/akamuinsaner/todoList</a><br>查看演示：运行下列命令</p>
-<pre>
-git clone https://github.com/akamuinsaner/todoList
-cd todoList
-npm install
-npm start
-</pre>
-
-
-
-
+        <p>之前使用原生js+bootstrap做了一个简单的人员录入界面，用过react才知道操作dom是真的麻烦。。。<br><img src="https://raw.githubusercontent.com/akamuinsaner/akamuinsaner.github.io/master/uploads/perosonnote.png"><br>使用localStorage本地存储录入人员信息，即使刷新页面记录也不会丢失。<br>介绍：<br>1.Add按钮：点击Add按钮会在表格新增一空白行。<br>2.Delete按钮：选中若干表格行，点击Delete按钮会将选中表格行和对应内存信息删除（电话必须填完整，因为删除是根据电话删除，电话独一无二）<br>3.Save按钮：当添加完人员信息后点击Save按钮会将信息保存进内存<br>4.Filtrate按钮：当选择完筛选信息后，点击会显示对应信息<br>5.ShowAll按钮：点击后显示所有本地人员信息<br>6.Search按钮：在最上部文本输入框内输入人员姓名后点击会弹出一模态弹窗来显示对应人员信息                                      </p>
+<p>源代码：<a href="https://github.com/akamuinsaner/PersonNote" target="_blank" rel="external">https://github.com/akamuinsaner/PersonNote</a><br>查看演示：<br><a href="http://htmlpreview.github.io/?https://github.com/akamuinsaner/PersonNote/blob/master/PersonnalRegistration.html" target="_blank" rel="external">http://htmlpreview.github.io/?https://github.com/akamuinsaner/PersonNote/blob/master/PersonnalRegistration.html</a></p>
 
       
     </div>
@@ -561,15 +357,15 @@ npm start
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/08/08/react-redux初体验/" rel="next" title="react&redux初体验">
+                <i class="fa fa-chevron-left"></i> react&redux初体验
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/14/人员录入/" rel="prev" title="人员录入">
-                人员录入 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
