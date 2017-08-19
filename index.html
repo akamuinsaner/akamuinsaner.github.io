@@ -260,6 +260,127 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangshuaiBlog.com/2017/08/19/Counter-by-vue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王帅">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王帅のBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/19/Counter-by-vue/" itemprop="url">Counter by vue</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-19T14:41:44+08:00">
+                2017-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这几天学习了一下vue.js，可能是之前接触过react，再学习一个新的框架可能上手比较快，理解起来要比较容易一些。昨天使用vue.js编写了一个简单的counter应用。环境搭建是直接使用的vue-cli，直接百度就可以了，网上很多安装教程。<br><img src="https://raw.githubusercontent.com/akamuinsaner/akamuinsaner.github.io/master/uploads/counter.png"><br>这个我是使用vue的单文件组件写的，感觉使用起来比较像react，不同的组件放在不同的文件里，比较直观。<br>我把这个counter应用划分为3部分，1.controlpanel：最外层的容器组件；2.counter：上面的计数部分，包含两个按钮和一个计数；3.summary：最下面的计数和部分<br>我觉得vue比react优势的一点是vue对非父子组件之间的通信做了处理，可以通过初始化一个vue实例作为中央事件总线来负责传递数据，不像react只能采用props来实现父子组件通信。<br>采用bus总线时候遇到了一个问题：</p>
+<p><pre><br>    created:function(){<br>      bus.$on(‘onIncrement’,()=&gt;{this.total++})<br>      bus.$on(‘onDecrement’,()=&gt;{this.total–})<br>    }<br></pre><br>使用bus监听事件时$on内部的回调函数没有使用传统的匿名函数，而是使用了es6的箭头函数。因为在传统匿名函数内部使用this关键字，我使用console。log（this）在控制台打印发现this指向的并不是这个vue组件实例，而是bus的vue实例，于是使用es6匿名函数，因为匿名函数内部的this指向当前父实例我就可以通过this.total来获取组件的数据了</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wangshuaiBlog.com/2017/08/14/人员录入/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -739,7 +860,7 @@ npm start
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
